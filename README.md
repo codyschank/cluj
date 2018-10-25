@@ -7,5 +7,5 @@ The notebook 'scrape_testing' uses selenium to log in to espn and scrape data fr
 2. Put the chromedriver in your /usr/local/bin folder
 
 **Next steps:**
-Do matchup comparison based on cumulative stats expected across number of games for each player during that matchup. 
+1. Do matchup comparison based on cumulative stats expected across number of games for each player during that matchup. 
 
