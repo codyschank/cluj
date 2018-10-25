@@ -8,4 +8,5 @@ Do matchup comparison based on cumulative stats expected across number of games 
 Selenium installation instructions:
 
 Download chromedriver here: http://chromedriver.chromium.org/getting-started
+
 Put the chromedriver in your /usr/local/bin folder
