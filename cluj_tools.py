@@ -188,20 +188,26 @@ def simulate_data(n_samples, matchup_end_date, players_df):
 
 def generate_team_totals(n_samples, team_samples_df, team_totals):
 
-    team_totals_samples = []
-    # iterate over samples
-    for sample in range(n_samples):
+    if team_samples_df.shape[0] > 0:
+        team_totals_samples = []
+        # iterate over samples
+        for sample in range(n_samples):
 
-        sample_totals = {}
-        team_samples_df.loc[team_samples_df['sample_i']==sample]
-        sample_totals['sample_i'] = sample
-        for stat in ['assists','blocks','fga','fgm','fta','ftm','points','rebounds','steals','threes']:
-            sample_totals[stat] = team_totals[stat] + team_samples_df.loc[team_samples_df['sample_i']==sample][stat].sum()
-        team_totals_samples.append(sample_totals)
+            sample_totals = {}
+            team_samples_df.loc[team_samples_df['sample_i']==sample]
+            sample_totals['sample_i'] = sample
+            for stat in ['assists','blocks','fga','fgm','fta','ftm','points','rebounds','steals','threes']:
+                sample_totals[stat] = team_totals[stat] + team_samples_df.loc[team_samples_df['sample_i']==sample][stat].sum()
+            team_totals_samples.append(sample_totals)
 
-    team_totals_samples_df = pd.DataFrame(team_totals_samples)
-    team_totals_samples_df['ft_pct'] = team_totals_samples_df.ftm / team_totals_samples_df.fta
-    team_totals_samples_df['fg_pct'] = team_totals_samples_df.fgm / team_totals_samples_df.fga
+        team_totals_samples_df = pd.DataFrame(team_totals_samples)
+        team_totals_samples_df['ft_pct'] = team_totals_samples_df.ftm / team_totals_samples_df.fta
+        team_totals_samples_df['fg_pct'] = team_totals_samples_df.fgm / team_totals_samples_df.fga
+    else: # no games for this team
+        team_totals_samples_df = pd.DataFrame([team_totals for i in range(n_samples)])
+        team_totals_samples_df['sample_i'] = list(range(0, n_samples))
+        team_totals_samples_df['ft_pct'] = team_totals_samples_df.ftm / team_totals_samples_df.fta
+        team_totals_samples_df['fg_pct'] = team_totals_samples_df.fgm / team_totals_samples_df.fga
 
     return(team_totals_samples_df)
 
