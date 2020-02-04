@@ -179,7 +179,7 @@ def simulate_data(n_samples, matchup_end_date, players_df):
         #print(n_games)
 
         for sample in range(n_samples):
-            player_samples = player_boxscores.sample(replace=False, n=n_games)
+            player_samples = player_boxscores.sample(replace=True, n=n_games)
             player_samples['sample_i'] = sample
             samples.append(player_samples.to_dict('records'))
 
