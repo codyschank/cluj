@@ -7,12 +7,11 @@ Player Rater:
 
 Database
 - Data does include playoffs, so far I have 2018-19 reg season and playoffs, 2019-20 regular season
-- Add a column to indicate whether regular season or playoff game
 - Add a column for position? Could pull this from espn
+- Create a table to hold matchup outcomes, for determining accuracy of predictions
 
 Boxscore simulater/predictor:
-- Write a script to calculate probabilities for each fantasy matchup every day, and see how well calibrated the model is. 
-- How to weight sampling towards more recent games
+- Create some code to look at the accuracy of predictions
 - Actually create a model to predict scoring based on opponent, teammates injured (at same position)
 - How to account for situations where more players have games than you can start on a given day 
 - Count up games for each day, flag days where there are more than 9, and if so, drop games from the worst performing players
@@ -22,7 +21,6 @@ Modeling:
 - Is there any temporal autocorrelation in the performance (where performance is more similar for games that are near each other in time)?
 
 Main: 
-- Is it possible to schedule git to push?
 - Create a "dashboard" using Rshiny
 - Create a trade proposer
 

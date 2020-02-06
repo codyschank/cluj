@@ -71,7 +71,7 @@ def player_rater():
     stats_df['avg_pts'] = stats_df['pts'] / stats_df['gp']
     stats_df['avg_threes'] = stats_df['threes'] / stats_df['gp']
 
-    stats_df = stats_df.loc[stats_df['gp'] > 10] # only use players with more than 10 games in player rater
+    #stats_df = stats_df.loc[stats_df['gp'] > 10] # only use players with more than 10 games in player rater
 
     stats_df.loc[:,'ast_avg_rank'] = stats_df.apply(lambda x: ( (x['avg_ast'] - stats_df['avg_ast'].mean()) / stats_df['avg_ast'].std()) , axis = 1)
     stats_df.loc[:,'blocks_avg_rank'] = stats_df.apply(lambda x: ( (x['avg_blocks'] - stats_df['avg_blocks'].mean()) / stats_df['avg_blocks'].std()) , axis = 1)
