@@ -326,7 +326,7 @@ def compare_totals(teamId, team_totals_samples_df, opponent_totals_samples_df, m
         results[stat] = (merged[stat+'_x'] > merged[stat+'_y']).sum()
     results['team'] = teamId
     results['date'] = today
-    results['matchupPeriod'] = matchupPeriod
+    results['matchupperiod'] = matchupPeriod
     results['days_to_end'] = (matchup_end_date - datetime.strptime(today,'%Y-%m-%d').date()).days
     df = pd.DataFrame(results, index=[0])
     df.to_sql('predictions', con=engine, if_exists='append', index=False)
