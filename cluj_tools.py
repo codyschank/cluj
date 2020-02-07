@@ -279,16 +279,18 @@ def simulate_data(n_samples, matchup_end_date, players_df):
         #print(n_games)
 
         # this does linear weights
-        date_diffs = (pd.to_datetime(player_boxscores.date) - pd.to_datetime(today)).dt.days
-        min_diff = min(date_diffs)
-        weights = date_diffs+abs(min_diff)
-        player_boxscores['weights'] = weights
+        #date_diffs = (pd.to_datetime(player_boxscores.date) - pd.to_datetime(today)).dt.days
+        #min_diff = min(date_diffs)
+        #weights = date_diffs+abs(min_diff)
+        #player_boxscores['weights'] = weights
 
-        for sample in range(n_samples):
-            player_samples = player_boxscores.sample(replace=True, n=n_games)
-            #player_samples = player_boxscores.sample(replace=True, n=n_games, weights='weights')
-            player_samples['sample_i'] = sample
-            samples.append(player_samples.to_dict('records'))
+        if player_boxscores.shape[0] > 0:
+
+            for sample in range(n_samples):
+                player_samples = player_boxscores.sample(replace=True, n=n_games)
+                #player_samples = player_boxscores.sample(replace=True, n=n_games, weights='weights')
+                player_samples['sample_i'] = sample
+                samples.append(player_samples.to_dict('records'))
 
     samples_df = pd.DataFrame(list(chain.from_iterable(samples)))
     return(samples_df)
