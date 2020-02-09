@@ -104,6 +104,33 @@ def player_rater():
 
     return(final_stats_df)
 
+def get_rosters(matchupPeriod):
+
+    url = 'https://fantasy.espn.com/apis/v3/games/FBA/seasons/2020/segments/0/leagues/' + str(league_id)
+    params={"view": "mBoxscore"}
+    r = requests.get(url, params=params, cookies=cookies)
+    data = r.json()
+
+    players = []
+
+    for matchup in data['schedule']:
+
+        if (matchup['matchupPeriodId'] == matchupPeriod):
+
+            teamId = matchup['home']['teamId']
+
+            for entry in matchup['home']['rosterForCurrentScoringPeriod']['entries']:
+                players.append({'fullName':entry['playerPoolEntry']['player']['fullName'],
+                                'teamId': teamId})
+
+            teamId = matchup['away']['teamId']
+
+            for entry in matchup['away']['rosterForCurrentScoringPeriod']['entries']:
+                players.append({'fullName':entry['playerPoolEntry']['player']['fullName'],
+                                'teamId': teamId})
+
+    rosters = pd.DataFrame(players)
+    return(rosters)
 
 def pull_boxscores(day):
     boxscores = client.player_box_scores(day=day.day, month=day.month, year=day.year)
