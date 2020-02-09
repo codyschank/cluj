@@ -26,3 +26,5 @@ Main:
 
 References:
 https://stmorse.github.io/journal/espn-fantasy-v3.html
+https://stmorse.github.io/journal/espn-fantasy-python.html
+https://github.com/mkreiser/ESPN-Fantasy-Football-API (for info about cookies)
