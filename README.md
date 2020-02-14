@@ -15,6 +15,7 @@ Boxscore simulater/predictor:
 - Actually create a model to predict scoring based on opponent, teammates injured (at same position)
 - How to account for situations where more players have games than you can start on a given day 
 - Count up games for each day, flag days where there are more than 9, and if so, drop games from the worst performing players
+- Don't account for ties yet
 
 Modeling:
 - Factors that might influence performance: home vs away, years in the league, random intercept for opponent (some measure of within year difficulty)
@@ -23,6 +24,7 @@ Modeling:
 Main: 
 - Create a "dashboard" using Rshiny
 - Create a trade proposer
+- Record DTD tag somewhere in DB and make predictions about missing games, will help with simulations. Pie in the sky use NLP to parse player updates to try and predict if they will play.
 
 References:
 https://stmorse.github.io/journal/espn-fantasy-v3.html
