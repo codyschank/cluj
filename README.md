@@ -8,10 +8,10 @@ Player Rater:
 Database
 - Data does include playoffs, so far I have 2018-19 reg season and playoffs, 2019-20 regular season
 - Add a column for position? Could pull this from espn
-- Create a table to hold matchup outcomes, for determining accuracy of predictions
 
 Boxscore simulater/predictor:
 - Create some code to look at the accuracy of predictions
+- Create a function to pull most recent matchup when it ends and write to matchup_results, schedule to run once a week? Or maybe it runs daily with other daily stuff, but only actually completes if the matchup just ended
 - Actually create a model to predict scoring based on opponent, teammates injured (at same position)
 - How to account for situations where more players have games than you can start on a given day 
 - Count up games for each day, flag days where there are more than 9, and if so, drop games from the worst performing players
