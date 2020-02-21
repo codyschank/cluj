@@ -16,6 +16,7 @@ Boxscore simulater/predictor:
 - How to account for situations where more players have games than you can start on a given day 
 - Count up games for each day, flag days where there are more than 9, and if so, drop games from the worst performing players
 - Don't account for ties yet
+- No way to get past data for testing different models (would need rosters each day, boxscores each day). But really don't need to do this, just need to find ways to better predict player performance (than just random sampling) and account for injuries/not the right amount of slots for players.
 
 Modeling:
 - Factors that might influence performance: home vs away, years in the league, random intercept for opponent (some measure of within year difficulty)
