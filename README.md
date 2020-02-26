@@ -2,6 +2,8 @@
 
 Now using the ESPN API, which is completely undocumented, but perhaps a better way to pull than data than web scraping. 
 
+- Looks like PJ Washington's name might have changed from P.J. to PJ in either ESPN or bball reference. Add something to remove periods from names?
+
 Player Rater:
 - Base on averages, not totals (but filter out players with small sample size)
 
